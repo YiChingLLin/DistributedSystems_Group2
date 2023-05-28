@@ -1,1 +1,1 @@
-# DistributedSystems_Team2
+# Distributed Systems Group2
