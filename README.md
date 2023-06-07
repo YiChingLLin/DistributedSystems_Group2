@@ -13,6 +13,13 @@
 - topic: 按車號分類
 - consumer: 計算出目前公車上有幾個人
 
+## 檔案說明
+### Raw Data
+
+### Bus
+
+### Dashboard
+
 ## Requirement
 - Kafka
 - Zookeeper
@@ -58,5 +65,3 @@
     `node kafka-consumer.js`
 
 - Open dashboard/index.html
-
-
