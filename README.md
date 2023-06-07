@@ -25,15 +25,15 @@
 ## Flow
 - Start Zookeeper and Kafka
     - Mac: 
-    `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
+    `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
     `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 - Create Topic CLI
     - Windows: 
 
     `kafka-topics.sh --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
     - Mac: 
-    
+
     `kafka-topics --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
 - Consumer CLI
     - Windows: `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
