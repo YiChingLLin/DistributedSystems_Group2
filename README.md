@@ -6,7 +6,7 @@
 
 [110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067)
 
-## 研究動機
+## 應用介紹
 
 ## 設計概念
 - producer: 每次到站時發出event:{車號, 上車人數, 下車人數}
