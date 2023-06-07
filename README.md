@@ -14,11 +14,11 @@
 - consumer: 計算出目前公車上有幾個人
 
 ## 檔案說明
-#### Raw Data
+### Raw Data
 
-#### Bus
+### Bus
 
-#### Dashboard
+### Dashboard
 
 ## Requirement
 - Kafka
@@ -29,14 +29,14 @@
 - confluent-kafka `pip install confluent-kafka`
 
 ## Flow
-- Start Zookeeper and Kafka
+1. Start Zookeeper and Kafka
     - Mac: 
 
     `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
     `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 
-- Create Topic CLI
+2. Create Topic CLI
     - Windows: 
 
     `kafka-topics.sh --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
@@ -45,7 +45,7 @@
 
     `kafka-topics --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
 
-- Consumer CLI
+3. Consumer CLI
     - Windows: 
     
     `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
@@ -54,14 +54,14 @@
     
     `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
 
-- Run raw-data/sender.py
+4. Run raw-data/sender.py
 
     `python sender.py`
 
-- Run Initialize.java (第一次執行時需初始人數)
-- Run calculator.java
-- Run Bus/Bus_server/kafka-consumer.js
+5. Run Initialize.java (第一次執行時需初始人數)
+6. Run calculator.java
+7. Run Bus/Bus_server/kafka-consumer.js
 
     `node kafka-consumer.js`
 
-- Open dashboard/index.html
+8. Open dashboard/index.html
