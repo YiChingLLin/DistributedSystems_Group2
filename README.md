@@ -3,9 +3,9 @@
 ### 分散式系統 Group2
 組員:
 
-    107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032
+107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032
 
-    [110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067)
+[110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067)
 
 ## 研究動機
 
@@ -26,24 +26,38 @@
 - Start Zookeeper and Kafka
     - Mac: 
 
-    `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
-    `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
+        zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties
+
+        kafka-server-start /opt/homebrew/etc/kafka/server.properties
+
 - Create Topic CLI
     - Windows: 
 
     `kafka-topics.sh --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
+
     - Mac: 
 
     `kafka-topics --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
+
 - Consumer CLI
-    - Windows: `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
-    - Mac: `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
+    - Windows: 
+    
+    `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
+
+    - Mac: 
+    
+    `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
+
 - Run raw-data/sender.py
+
     `python sender.py`
+
 - Run Initialize.java (第一次執行時需初始人數)
 - Run calculator.java
 - Run Bus/Bus_server/kafka-consumer.js
+
     `node kafka-consumer.js`
+
 - Open dashboard/index.html
 
 
