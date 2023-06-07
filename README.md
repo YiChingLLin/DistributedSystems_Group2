@@ -1,7 +1,6 @@
 # Apache Kafka應用 - 公車即時壅擠度
 
 ### 分散式系統 Group2
-組員:
 
 107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032
 
@@ -26,9 +25,9 @@
 - Start Zookeeper and Kafka
     - Mac: 
 
-        zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties
+    `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
-        kafka-server-start /opt/homebrew/etc/kafka/server.properties
+    `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 
 - Create Topic CLI
     - Windows: 
