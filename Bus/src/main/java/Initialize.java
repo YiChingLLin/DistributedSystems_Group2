@@ -19,11 +19,11 @@ public class Initialize {
         Producer<String, BusCurrent> producer = new KafkaProducer<>(producerProps);
 
         BusCurrent cur1 = new BusCurrent("NCCU-001", 50L);
-        producer.send(new ProducerRecord<String, BusCurrent>("crowdedness", 0, cur1.getCarNo(), cur1)).get();
+        producer.send(new ProducerRecord<String, BusCurrent>("Roosevelt", 0, cur1.getCarNo(), cur1)).get();
         BusCurrent cur2 = new BusCurrent("NCCU-002", 50L);
-        producer.send(new ProducerRecord<String, BusCurrent>("crowdedness", 1, cur2.getCarNo(), cur2)).get();
+        producer.send(new ProducerRecord<String, BusCurrent>("Roosevelt", 1, cur2.getCarNo(), cur2)).get();
         BusCurrent cur3 = new BusCurrent("NCCU-003", 50L);
-        producer.send(new ProducerRecord<String, BusCurrent>("crowdedness", 2, cur3.getCarNo(), cur3)).get();
+        producer.send(new ProducerRecord<String, BusCurrent>("Roosevelt", 2, cur3.getCarNo(), cur3)).get();
 
 
         System.out.println("Bus current people number has been initialized.");

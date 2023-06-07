@@ -115,7 +115,7 @@ public class calculator {
 
     private static void PollFromCurrent(Bus tx) {
         if (!currentNumber.containsKey(tx.getCarNumber())) {
-            TopicPartition topicPartition = new TopicPartition("crowdedness", Match(carNumberList,tx.getCarNumber()));
+            TopicPartition topicPartition = new TopicPartition("Roosevelt", Match(carNumberList,tx.getCarNumber()));
             consumerFromCurrent.assign(List.of(topicPartition));
             consumerFromCurrent.seekToEnd(Collections.singleton(topicPartition));
             long latestOffset = consumerFromCurrent.position(topicPartition);
@@ -158,6 +158,6 @@ public class calculator {
 
     private static void Process(Bus tx) throws ExecutionException, InterruptedException {
         currentNumber.compute(tx.getCarNumber(), (key, value) -> value - tx.getDown() + tx.getUp());
-        producer.send(new ProducerRecord<String, BusCurrent>("crowdedness", Match(carNumberList,tx.getCarNumber()), tx.getCarNumber(), Record(tx)));
+        producer.send(new ProducerRecord<String, BusCurrent>("Roosevelt", Match(carNumberList,tx.getCarNumber()), tx.getCarNumber(), Record(tx)));
     }
 }
