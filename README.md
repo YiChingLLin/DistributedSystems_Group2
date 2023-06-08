@@ -2,9 +2,9 @@
 
 ### 分散式系統 Group2
 
-<center>107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032 </center>
+107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032
 
-<center>[110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067) </center>
+[110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067)
 
 ## 應用介紹
 
@@ -14,7 +14,7 @@
 - consumer: 計算出目前公車上有幾個人 (目前該輛公車人數 = 前站該輛公車人數-下車人數+上車人數)
 
 ## 檔案說明
-以下列舉幾個重要檔案進行說明
+以下列舉個資料夾中幾個重要檔案進行說明
 ### Raw Data
 - raw_data_creator.py
 - sender.py
