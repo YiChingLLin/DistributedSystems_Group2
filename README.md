@@ -41,14 +41,14 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
 - confluent-kafka `pip install confluent-kafka`
 
 ## Flow
-1. Start Zookeeper and Kafka
+1. Start **Zookeeper** and **Kafka**
     - Mac: 
 
     `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
     `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 
-2. Create Topic CLI
+2. Create **Topic** CLI
     - Windows: 
 
     `kafka-topics.sh --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
@@ -57,7 +57,7 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
 
     `kafka-topics --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
 
-3. Consumer CLI
+3. **Consumer** CLI
     - Windows: 
     
     `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
@@ -66,16 +66,16 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
     
     `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
 
-4. Run raw-data/sender.py
+4. Run raw-data/**sender.py**
 
     `python sender.py`
 
-5. Run Bus/src/main/java/Initialize.java (第一次執行時需初始人數)
-6. Run Bus/src/main/java/calculator.java
-7. Run Bus/Bus_server/kafka-consumer.js
+5. Run Bus/src/main/java/**Initialize.java** (第一次執行時需初始人數)
+6. Run Bus/src/main/java/**calculator.java**
+7. Run Bus/Bus_server/**kafka-consumer.js**
 
     `node kafka-consumer.js`
 
-8. Open dashboard/index.html
+8. Open dashboard/**index.html**
 
 ![image](https://github.com/YiChingLLin/DistributedSystems_Group2/blob/readme/img/screencapture-dashboard.png)
