@@ -8,28 +8,31 @@
 
 ## 應用介紹
 
+
 ## 設計概念
 - producer: 每次到站時發出event
     > {車號, 上車人數, 下車人數}
 - topic: 按路線或車號分類
 - consumer: 計算出目前公車上有幾個人 
     > 目前該輛公車人數 = 前站該輛公車人數 - 下車人數 + 上車人數
+    > {車號, 目前車上人數}
 
 ## 檔案說明
-以下列舉個資料夾中幾個重要檔案進行說明
+以下為各資料夾中重要檔案用途說明
 ### Raw Data
-- raw_data_creator.py
-- sender.py
+- raw_data_creator.py: 作為producer發出event來模擬各輛公車即時的上下車人數資料
+- sender.py: 呼叫raw_data_creator以啟動多個process
 
 ### Bus
-- Bus_server
 - src/main/java
-    - calculator.java
-    - Initialize.java
-    - test.java
+    - calculator.java: 接收各輛公車即時的上下車人數資料，以計算目前車上人數並傳出
+    - Initialize.java: 將各輛公車的初始人數資料傳進topic
+    - test.java: 測試用
+- Bus_server
+    - kafka-consumer.js: 取得各輛公車即時的上下車人數資料與計算後的目前車上人數
 
 ### Dashboard
-- index.html
+- index.html: 將各輛公車的即時壅擠度(車上人數)以前端儀表板呈現
 
 ## Requirement
 - Kafka
@@ -59,20 +62,22 @@
 3. Consumer CLI
     - Windows: 
     
-    `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
+    `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
 
     - Mac: 
     
-    `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true `
+    `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
 
 4. Run raw-data/sender.py
 
     `python sender.py`
 
-5. Run Initialize.java (第一次執行時需初始人數)
-6. Run calculator.java
+5. Run Bus/src/main/java/Initialize.java (第一次執行時需初始人數)
+6. Run Bus/src/main/java/calculator.java
 7. Run Bus/Bus_server/kafka-consumer.js
 
     `node kafka-consumer.js`
 
 8. Open dashboard/index.html
+
+![image](https://github.com/YiChingLLin/DistributedSystems_Group2/blob/readme/img/screencapture-dashboard.png)
