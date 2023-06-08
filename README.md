@@ -30,7 +30,7 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
     - kafka-consumer.js: 取得各輛公車即時的上下車人數資料與計算後的目前車上人數
 
 #### Dashboard
-- index.html: 將各輛公車的即時壅擠度(車上人數)以前端儀表板呈現
+- index.html: 將各輛公車的即時壅擠度(車上人數)以前端視覺化畫面呈現
 
 ## Requirement
 - Kafka
