@@ -27,7 +27,7 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
     - Initialize.java: 將各輛公車的初始人數資料傳進topic
     - test.java: 測試用
 - Bus_server
-    - kafka-consumer.js: 取得各輛公車即時的上下車人數資料與計算後的目前車上人數
+    - kafka-consumer.js: 取得各輛公車<!--即時的上下車人數資料與計算後的 -->目前車上人數
 
 #### Dashboard
 - index.html: 將各輛公車的即時壅擠度(車上人數)以前端視覺化畫面呈現
