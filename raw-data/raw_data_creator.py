@@ -34,7 +34,7 @@ def run1():
         producer.produce(topic='Roosevelt', key='NCCU-001', value=dumps(
             {'carNumber': 'NCCU-001', 'up': up, 'down': down}), callback=delivery_callback)
         
-        producer.poll(random())
+        producer.poll(5000)
 
 
 def run2():
@@ -59,7 +59,7 @@ def run2():
         producer.produce(topic='Roosevelt', key='NCCU-002', value=dumps(
         {'carNumber': 'NCCU-002', 'up': up, 'down': down}), callback=delivery_callback)
         
-        producer.poll(random())
+        producer.poll(5000)
 
 
 def run3():
@@ -82,4 +82,4 @@ def run3():
         producer.produce(topic='Roosevelt', key='NCCU-003', value=dumps(
             {'carNumber': 'NCCU-003', 'up': up, 'down': down}), callback=delivery_callback)
         
-        producer.poll(random())
+        producer.poll(5000)
