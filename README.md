@@ -22,12 +22,13 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
 - sender.py: 呼叫raw_data_creator以啟動多個process
 
 #### Bus
-- src/main/java
-    - calculator.java: 接收各輛公車即時的上下車人數資料，以持續計算目前車上人數並更新
-    - Initialize.java: 將各輛公車的初始人數資料傳進topic
-    - test.java: 測試用
-- Bus_server
-    - kafka-consumer.js: 取得各輛公車目前車上人數
+src/main/java
+- calculator.java: 接收各輛公車即時的上下車人數資料，以持續計算目前車上人數並更新
+- Initialize.java: 將各輛公車的初始人數資料傳進topic
+- test.java: 測試用
+
+Bus_server
+- kafka-consumer.js: 取得各輛公車目前車上人數
 
 #### Dashboard
 - index.html: 將各輛公車的即時擁擠度(車上人數)以前端視覺化畫面呈現
