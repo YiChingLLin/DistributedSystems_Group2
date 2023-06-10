@@ -1,11 +1,11 @@
-# Apache Kafka應用 - 公車即時壅擠度
+# Apache Kafka應用 - 公車即時擁擠度
 
 ### 分散式系統 Group2
 
 107703049, [108207329](https://github.com/xoxonut), 109703003, 109703032, [110356019](https://github.com/YiChingLLin), [110356022](https://github.com/dabaoku), 110356046, [111356023](https://github.com/106306067)
 
 ## 應用介紹
-Kafka作為一個事件串流平台，主要用於處理大量的串流事件資料的分散式系統。在本次期末專題中，我們將Kafka應用於計算公車即時壅擠度，用於處理大量即時的公車上下車人數資料以估計公車上目前人數是否過於壅擠，藉此提供民眾作為是否轉乘其他班次、路線之參考依據。本應用假設所有公車僅接受電子票證方式搭乘且民眾於上下車皆會感應票證並即時回傳。在程式中以隨機產生數值模擬公車即時的上下車人數作為資料來源，再透過計算將目前公車上人數的資料傳出，並即時呈現於儀表板中。
+Kafka作為一個事件串流平台，主要用於處理大量的串流事件資料的分散式系統。在本次期末專題中，我們將Kafka應用於計算公車即時擁擠度，用於處理大量即時的公車上下車人數資料以估計公車上目前人數是否過於擁擠，藉此提供民眾作為是否轉乘其他班次、路線之參考依據。本應用假設所有公車僅接受電子票證方式搭乘且民眾於上下車皆會感應票證並即時回傳。在程式中以隨機產生數值模擬公車即時的上下車人數作為資料來源，再透過計算將目前公車上人數的資料傳出，並即時呈現於儀表板中。
 
 ## 設計概念
 - producer: 每次到站時發出event
@@ -23,14 +23,14 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
 
 #### Bus
 - src/main/java
-    - calculator.java: 接收各輛公車即時的上下車人數資料，以計算目前車上人數並傳出
+    - calculator.java: 接收各輛公車即時的上下車人數資料，以持續計算目前車上人數並更新
     - Initialize.java: 將各輛公車的初始人數資料傳進topic
     - test.java: 測試用
 - Bus_server
-    - kafka-consumer.js: 取得各輛公車<!--即時的上下車人數資料與計算後的 -->目前車上人數
+    - kafka-consumer.js: 取得各輛公車目前車上人數
 
 #### Dashboard
-- index.html: 將各輛公車的即時壅擠度(車上人數)以前端視覺化畫面呈現
+- index.html: 將各輛公車的即時擁擠度(車上人數)以前端視覺化畫面呈現
 
 ## Requirement
 - Kafka
@@ -41,23 +41,38 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
 - confluent-kafka `pip install confluent-kafka`
 
 ## Flow
-1. Start **Zookeeper** and **Kafka**
+1. Start **Zookeeper**
+    - Windows: 
+
+    `.\zookeeper-server-start.bat ..\..\config\zookeeper.properties`
+
     - Mac: 
 
     `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
+2. Start **Kafka**
+    - Windows:
+
+    `.\kafka-server-start.bat ..\..\config\server.properties`
+
+    - Mac: 
+
     `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 
-2. Create **Topic** CLI
+3. Create **Topic**
     - Windows: 
 
-    `kafka-topics.sh --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
+    `.\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
+
+    `.\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic crowdedness --partitions 3 --replication-factor 1`
 
     - Mac: 
 
     `kafka-topics --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
 
-3. **Consumer** CLI
+    `kafka-topics --create --bootstrap-server localhost:9092 --topic crowdedness --partitions 3 --replication-factor 1`
+
+    Consumer
     - Windows: 
     
     `kafka-console-consumer.sh  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
@@ -66,15 +81,17 @@ Kafka作為一個事件串流平台，主要用於處理大量的串流事件資
     
     `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
 
-4. Run raw-data/**sender.py**
+4. Run Bus/src/main/java/**Initialize.java** (第一次執行時需初始人數)
 
-    `python sender.py`
+5. Run Bus/src/main/java/**calculator.java**
 
-5. Run Bus/src/main/java/**Initialize.java** (第一次執行時需初始人數)
-6. Run Bus/src/main/java/**calculator.java**
-7. Run Bus/Bus_server/**kafka-consumer.js**
+6. Run Bus/Bus_server/**kafka-consumer.js**
 
     `node kafka-consumer.js`
+
+7. Run raw-data/**sender.py**
+
+    `python sender.py`
 
 8. Open dashboard/**index.html**
 
