@@ -33,7 +33,7 @@ Bus_server
 #### Dashboard
 - index.html: 將各輛公車的即時擁擠度(車上人數)以前端視覺化畫面呈現
 
-## Requirement
+## 環境需求
 - Kafka
 - Zookeeper
 - Java
@@ -41,8 +41,8 @@ Bus_server
 - Node.js
 - confluent-kafka `pip install confluent-kafka`
 
-## Flow
-1. Start **Zookeeper**
+## 操作流程
+1. 啟動 **Zookeeper**
     - Windows: 
 
     `.\zookeeper-server-start.bat ..\..\config\zookeeper.properties`
@@ -51,7 +51,7 @@ Bus_server
 
     `zookeeper-server-start /opt/homebrew/etc/kafka/zookeeper.properties`
 
-2. Start **Kafka**
+2. 啟動 **Kafka**
     - Windows:
 
     `.\kafka-server-start.bat ..\..\config\server.properties`
@@ -60,7 +60,7 @@ Bus_server
 
     `kafka-server-start /opt/homebrew/etc/kafka/server.properties`
 
-3. Create **Topic**
+3. 建立 **Topic**
     - Windows: 
 
     `.\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic Roosevelt --partitions 3 --replication-factor 1`
@@ -82,18 +82,18 @@ Bus_server
     
     `kafka-console-consumer  --topic Roosevelt --from-beginning --bootstrap-server localhost:9092 --property print.key=true`
 
-4. Run Bus/src/main/java/**Initialize.java** (第一次執行時需初始人數)
+4. 執行 Bus/src/main/java/**Initialize.java** (第一次執行時需初始人數)
 
-5. Run Bus/src/main/java/**calculator.java**
+5. 執行 Bus/src/main/java/**calculator.java**
 
-6. Run Bus/Bus_server/**kafka-consumer.js**
+6. 執行 Bus/Bus_server/**kafka-consumer.js**
 
     `node kafka-consumer.js`
 
-7. Run raw-data/**sender.py**
+7. 執行 raw-data/**sender.py**
 
     `python sender.py`
 
-8. Open dashboard/**index.html**
+8. 開啟 dashboard/**index.html**
 
 ![image](https://github.com/YiChingLLin/DistributedSystems_Group2/blob/readme/img/screencapture-dashboard.png)
