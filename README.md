@@ -96,4 +96,4 @@ Bus_server
 
 8. 開啟 dashboard/**index.html**
 
-![image](https://github.com/YiChingLLin/DistributedSystems_Group2/blob/readme/img/screencapture-dashboard.png)
+![image](https://github.com/YiChingLLin/DistributedSystems_Group2/blob/main/img/screencapture-dashboard.png)
